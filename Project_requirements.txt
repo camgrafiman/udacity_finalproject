@@ -1,0 +1,5 @@
+SUBMIT: Github repo (or Zip file) with:
+
+    README which includes:
+        URL where the application is hosted
+        Instructions to set up authentication
