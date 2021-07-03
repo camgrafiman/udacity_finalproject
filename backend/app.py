@@ -10,7 +10,14 @@ from flask_cors import CORS
 import random
 import datetime
 
-from database.models import setup_db, db_drop_and_create_all, User, Category, Character, Show
+from database.models import (
+    setup_db,
+    db_drop_and_create_all,
+    User,
+    Category,
+    Character,
+    Show
+)
 from auth.auth import AuthError, requires_auth
 
 
@@ -19,7 +26,8 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app, resources={r"/*": {"origins": "*"}})
 
-    # TESTING: Unconment on the initial run to setup. Used to erase data from the database tables and create a testUser.
+    # TESTING: Unconment on the initial run to setup.
+    # Used to erase data from the database tables and create a testUser.
     # db_drop_and_create_all()
 
     # CORS Headers:
@@ -182,7 +190,8 @@ def create_app(test_config=None):
 
         try:
             request_data = request.get_json()
-            if 'name' not in request_data or 'character_name' not in request_data:
+            if 'name' not in request_data \
+                    or 'character_name' not in request_data:
                 abort(422)
 
             named = request_data['name']
@@ -199,11 +208,6 @@ def create_app(test_config=None):
                 image=imaged)
             print(new_character)
             new_character.insert()
-
-            # casts = Show.query.filter(Show.name.in_(data['showcasts'])).all()
-            # casts = data['showcasts']
-            # print(casts)
-            # new_character.showcasts = casts
 
             return jsonify({
                 'success': True,
@@ -273,8 +277,6 @@ def create_app(test_config=None):
         except BaseException:
             abort(422)
 
-    #
-
     '''
     [# SHOW ENDPOINTS #]
 
@@ -309,10 +311,17 @@ def create_app(test_config=None):
         request_data = request.get_json()
         try:
 
-            if 'title' not in request_data or 'show_type' not in request_data or 'show_description' not in request_data or 'release_date' not in request_data or 'rating' not in request_data:
+            if 'title' not in request_data \
+                    or 'show_type' not in request_data \
+                    or 'show_description' not in request_data \
+                    or 'release_date' not in request_data \
+                    or 'rating' not in request_data:
                 abort(422)
 
-            if request_data['title'] == '' or request_data['show_type'] == '' or request_data['release_date'] <= 0 or request_data['rating'] < 0:
+            if request_data['title'] == '' \
+                    or request_data['show_type'] == '' \
+                    or request_data['release_date'] <= 0 \
+                    or request_data['rating'] < 0:
                 abort(422)
 
             title = request_data['title']
@@ -345,14 +354,22 @@ def create_app(test_config=None):
         show_data = Show.query.get_or_404(show_id)
         try:
             request_data = request.get_json()
-            if 'title' not in request_data or 'show_type' not in request_data or 'show_description' not in request_data or 'release_date' not in request_data or 'rating' not in request_data:
+            if 'title' not in request_data \
+                    or 'show_type' not in request_data \
+                    or 'show_description' not in request_data \
+                    or 'release_date' not in request_data \
+                    or 'rating' not in request_data:
                 abort(422)
 
-            if request_data['title'] == '' or request_data['show_type'] == '' or request_data['release_date'] <= 0 or request_data['rating'] < 0:
+            if request_data['title'] == '' \
+                    or request_data['show_type'] == '' \
+                    or request_data['release_date'] <= 0 \
+                    or request_data['rating'] < 0:
                 abort(422)
             if request_data['release_date'] <= 0:
                 abort(422)
-            if request_data['rating'] == '' or 'rating' not in request_data:
+            if request_data['rating'] == '' \
+                    or 'rating' not in request_data:
                 abort(422)
 
             show_data.title = request_data['title']
@@ -488,7 +505,4 @@ def create_app(test_config=None):
     return app
 
 
-# Init the application:
-# if __name__ == '__main__':
-#     app.run(debug=True)
 app = create_app()

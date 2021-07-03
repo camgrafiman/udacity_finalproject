@@ -75,14 +75,16 @@ def get_token_auth_header():
 
 
 '''
-@DONETODO implement check_permissions(permission, payload) method
+implement check_permissions(permission, payload) method
     @INPUTS
-        permission: string permission (i.e. 'post:drink')
-        payload: decoded jwt payload
-
-    it should raise an AuthError if permissions are not included in the payload
-        !!NOTE check your RBAC settings in Auth0
-    it should raise an AuthError if the requested permission string is not in the payload permissions array
+    permission: string permission (i.e. 'post:drink')
+    payload: decoded jwt payload
+    it should raise an AuthError
+    if permissions are not included in the payload
+    !!NOTE check your RBAC settings in Auth0
+    it should raise an AuthError if the
+    requested permission string is not
+    in the payload permissions array
     return true otherwise
 '''
 
@@ -106,13 +108,15 @@ def check_permissions(permission, payload):
     @INPUTS
         token: a json web token (string)
 
-    it should be an Auth0 token with key id (kid) DONE
-    it should verify the token using Auth0 /.well-known/jwks.json DONE
-    it should decode the payload from the token DONE
-    it should validate the claims DONE
-    return the decoded payload DONE
+    it should be an Auth0 token
+    with key id (kid) DONE
+    it should verify the token
+    using Auth0 /.well-known/jwks.json
+    it should decode
+    the payload from the token.
+    it should validate the claims
+    return the decoded payload
 
-    !!NOTE urlopen has a common certificate error described here: https://stackoverflow.com/questions/50236117/scraping-ssl-certificate-verify-failed-error-for-http-en-wikipedia-org
 '''
 
 
