@@ -4,20 +4,15 @@ from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
-
+from decouple import config
 
 '''
 AUTH0 Config data:
 '''
-# AUTH0_DOMAIN = os.environ.get('REACT_APP_AUTH0_DOMAIN')
-# ALGORITHMS = os.environ.get('ALGORITHMS')
-# API_AUDIENCE = os.environ.get('REACT_APP_AUTH0_AUDIENCE')
-AUTH0_DOMAIN = 'dev-x-camgrafiman.eu.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'finalprojectapi'
+AUTH0_DOMAIN = os.environ.get('REACT_APP_AUTH0_DOMAIN')
+ALGORITHMS = os.environ.get('ALGORITHMS')
+API_AUDIENCE = os.environ.get('REACT_APP_AUTH0_AUDIENCE')
 
-print(AUTH0_DOMAIN)
-print(ALGORITHMS)
 # AuthError Exception
 '''
 AuthError Exception
