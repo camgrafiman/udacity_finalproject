@@ -126,9 +126,12 @@ Base URL: This application can be run locally (`localhost:5000`). The hosted ver
 Authentication: This application requires authentication to perform various actions. All the endpoints require
 various permissions, except the root '/' and '/api' endpoints, and the permissions are passed via the `Bearer` JWT token.
 
+- Public users can access:
+  - '/api' endpoint which shows just the version.
+
 The application has three different types of roles:
 
-- User
+- User (Registered)
   - Can only view the list of characters, shows and categories. Can view complete information for any character, show and categories.
   - Has `get:characters, get:character-info, get:shows, get:show-info, get:categories` permissions.
 - Manager
@@ -596,7 +599,35 @@ The API will return the following errors based on how the request fails:
 
 ## Testing
 
-For testing the backend,
+
+This app can be tested visually as I've implemented a React frontend:
+https://udacity-camgrafiman2.herokuapp.com/
+you can login with 3 different user Roles to test the whole app:
+- User login: testuser@gmail.com pass: Test1234?
+- Manager login: testmanager@gmail.com pass: Test1234?
+- Admin login: testadmin@gmail.com pass: Test1234?
+
+Also to test API endpoints as a specific user you can use the provided postman collections (for each role) in the 'backend' folder to import and test in postman.
+
+
+For testing the backend database locally:
+```
+Change 'DATABASE_URI' to 'DATABASE_URI_LOCAL' in models.py
+```
+
+Fill the DATABASE environment variables to match your local postgresql config with the following VARIABLE KEYS:
+
+
+```
+DATABASE_URI_LOCAL="postgresql://{User}:{password}@{localhost}:{port}/finalproject"
+DATABASE_PORT=5432
+SECRET_WORD="gallego"
+APP_ENTRYPOINT=app.py
+```
+
+
+
+
 open the 'testdb.sql' change the admin user for your default one (postgres) for example
 run the following commands (in the exact order):
 
@@ -609,7 +640,8 @@ python test_app.py
 
 ```
 
-Alternate way: Create the db `finalproject` using PgAdmin and copy the contents of testdb.sql and paste them
-in Query tool in PgAdmin and create the db table with records. Then, run the command `python test_app.py`.
-```
+
+Once you followed these steps, please follow the ##Running the server steps.
 ````
+
+Thanks!!

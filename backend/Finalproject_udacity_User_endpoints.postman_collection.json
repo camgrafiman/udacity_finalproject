@@ -1,0 +1,751 @@
+{
+	"info": {
+		"_postman_id": "4a87feb8-0f02-43f0-ba1e-f31c570f7efe",
+		"name": "Finalproject_udacity_User_endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/characters",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"characters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET character by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/characters/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"characters",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to post characters\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Personaje 3 \",\r\n    \"character_name\": \"pers3\",\r\n    \"age\": 42,\r\n    \"gender\": \"Male\",\r\n    \"image\": \"https://depor.com/resizer/L7po2rUhM98ib1yC2w8Gek_Ex54=/1200x1200/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/SWEI5ZNN3ZGYNNGOBTTQL6GUII.jpg\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/characters",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"characters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to patch characters\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Angelina Jolie\",\r\n    \"character_name\": \"Lara Croft\",\r\n    \"age\": 29,\r\n    \"gender\": \"Female\",\r\n    \"image\": \"https://i.pinimg.com/736x/e5/72/74/e57274ee35b529dff15958afe2ea77a9.jpg\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/characters/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"characters",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE character",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to delete characters\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/characters/7",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"characters",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200, User can get categories\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/categories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to post categories\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cat_type\": \"Largometrajes\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/categories",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to patch categories\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cat_type\": \"Pelicula\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/categories/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"categories",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to delete categories\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/categories/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"categories",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET shows",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200, User is allowed to see shows\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/shows",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shows"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET show by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200, User is allowed to check show by id\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/shows/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shows",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST new show",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to post shows\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Fire and blood\",\r\n    \"show_type\": \"Series\",\r\n    \"show_description\": \"description for Game of thrones 2\",\r\n    \"release_date\": 2000,\r\n    \"rating\": 4.5\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/shows",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shows"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH show",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to patch shows\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Fire and blood\",\r\n    \"show_type\": \"Series\",\r\n    \"show_description\": \"series GOT 2nd\",\r\n    \"release_date\": 2021,\r\n    \"rating\": 4.5\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/shows/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shows",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE show",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403, User is not allowed to delete shows\", function() {\r",
+							"    pm.response.to.have.status(403);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkR4U2pQOVF3SzY1T1FsVWFsTjBfaSJ9.eyJpc3MiOiJodHRwczovL2Rldi14LWNhbWdyYWZpbWFuLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGRlM2NhYzZjMDdlMTAwNjg3Y2ZiNzAiLCJhdWQiOiJmaW5hbHByb2plY3RhcGkiLCJpYXQiOjE2MjUzMDcyMTcsImV4cCI6MTYyNTMxNDQxNywiYXpwIjoiNVpTOEtYbWd5YmFCM2NnQkdKOUtoWFp1eW9tdVR2blIiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjYXRlZ29yaWVzIiwiZ2V0OmNoYXJhY3Rlci1pbmZvIiwiZ2V0OmNoYXJhY3RlcnMiLCJnZXQ6c2hvdy1pbmZvIiwiZ2V0OnNob3dzIl19.G5VQdESmggZQsW2gu6Tx-Hmkai5WX1FmunsdSUHBTz5h5ZG_Gcmsk6nsZZeuWEXwiArh5xryPP2HYl_f9qfkCwyhEYBJQDSXbXd0L4to2MwfYq_V6ikKUREBOFA0FjnrxCAUTFOixlfYtqpLG9VZQKGUPhPRaUE8oTdbPlPjWBh3I7XcgbOvXVqqz5dNMadquGiBYqTPsXOR9VoVT0DcvRzxF11WkVHYeiJCGaEdNo6JSvswRSM1WHGJ61Fqxdhb6d4CeISo-mvehISsB086_X5_GVh5IPkV8uIwW_-Kw0d0kbEno11N4yxnXcufinmfuiTCt16lrNHACv5lS5t0GQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/shows/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shows",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
