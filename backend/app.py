@@ -487,6 +487,8 @@ def create_app(test_config=None):
 
     return app
 
+
 # Init the application:
 # if __name__ == '__main__':
 #     app.run(debug=True)
+app = create_app()
