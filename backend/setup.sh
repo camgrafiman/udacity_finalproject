@@ -1,0 +1,14 @@
+export REACT_APP_BACKEND_URL="https://udacity-camgrafiman2.herokuapp.com/"
+export REACT_APP_BACKEND_API_URL="https://udacity-camgrafiman2.herokuapp.com/api"
+export REACT_APP_AUTH0_DOMAIN="dev-x-camgrafiman.eu.auth0.com"
+export REACT_APP_AUTH0_CLIENT_ID="5ZS8KXmgybaB3cgBGJ9KhXZuyomuTvnR"
+export REACT_APP_AUTH0_LOGIN_URL="https://dev-x-camgrafiman.eu.auth0.com/authorize?audience=finalprojectapi&response_type=token&client_id=5ZS8KXmgybaB3cgBGJ9KhXZuyomuTvnR&redirect_uri=https://udacity-camgrafiman2.herokuapp.com/"
+export REACT_APP_AUTH0_AUDIENCE="finalprojectapi"
+export REACT_APP_ISSUER="https://dev-x-camgrafiman.eu.auth0.com/"
+export DATABASE_URI="postgresql://invzqdcntiuhwm:369e08152194aa55d3c0bf3dec222c9db8b6e7dc81cde2e69bee59095b6eb34b@ec2-54-216-185-51.eu-west-1.compute.amazonaws.com:5432/d7je8jd9vrr79p"
+export DATABASE_PORT=5432
+export DATABASE_NAME="d7je8jd9vrr79p"
+export DATABASE_USER="invzqdcntiuhwm"
+export DATABASE_PASS="369e08152194aa55d3c0bf3dec222c9db8b6e7dc81cde2e69bee59095b6eb34b"
+export SECRET_WORD="gallego"
+export APP_ENTRYPOINT=app.py

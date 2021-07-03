@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+code {
+	background-color: rgb(41, 45, 62);
+	box-sizing: border-box;
+	color: rgb(255 140 0);
+	display: block;
+	float: left;
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+		'Courier New', monospace;
+	font-size: 13.5px;
+	height: 220px;
+	line-height: 19.575px;
+	min-width: 100%;
+	overflow-wrap: break-word;
+	text-rendering: optimizelegibility;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	white-space: pre;
+	width: 914px;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	padding: 20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.home,
+.categories,
+.characters,
+.shows {
+	display: flex;
+	height: 90vh;
+	align-items: center;
+	justify-content: flex-start;
+	font-size: 1.2em;
+	padding: 20px;
+	flex-direction: column;
+}
+.sub {
+	background: #ff8000;
+	font-weight: bold;
+	padding: 2px 5px;
+}
+.profilePage {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 20px;
+	align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Create three equal columns that floats next to each other */
+.column {
+	/* display: grid; */
+	float: left;
+	width: 100%;
+	padding: 10px;
+	height: auto;
+	border: 1px solid orange;
+	border-radius: 5px 5px;
+	margin-top: 5px;
+	min-height: 400px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.row {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	justify-items: center;
+	align-items: baseline;
+	grid-gap: 4px 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Clear floats after the columns */
+.row:after {
+	content: '';
+	display: table;
+	clear: both;
 }
-
-.App-link {
-  color: #61dafb;
+ul {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	text-align: justify;
+	list-style: inside;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.column > ul > li {
+	border: 1px solid orange;
+    padding: 8px 18px;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.row {
+		grid-template-columns: repeat(1, 100%);
+	}
+}
+.button {
+	background: orange;
+	padding: 2px 6px;
+	margin: 0 5px;
+	border: 2px solid black;
+	font-weight: 700;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.error {
+	color: red;
+	font-size: 0.8em;
+}
+form {
+	display: grid;
+}
+form > * {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.character_image {
+	width: 50px;
+	height: 50px;
+	margin: 2px 5px;
 }

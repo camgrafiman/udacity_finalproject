@@ -34,7 +34,7 @@ def index():
 @app.route("/api/")
 def apiMain():
     return jsonify({
-        "apiVersion": "version 1.0"
+        "apiVersion": 1.0
     })
 
 
@@ -54,7 +54,8 @@ def apiUsers():
 
 
 @app.route("/api/categories", methods=['GET'])
-def categories():
+@requires_auth("get:categories")
+def categories(payload):
 
     try:
         categories = Category.query.order_by(Category.id).all()
@@ -68,7 +69,8 @@ def categories():
 
 
 @app.route("/api/categories", methods=['POST'])
-def categories_post():
+@requires_auth("post:categories")
+def categories_post(payload):
     request_data = request.get_json()
 
     try:
@@ -90,7 +92,8 @@ def categories_post():
 
 
 @app.route("/api/categories/<int:category_id>", methods=['PATCH'])
-def category_patch(category_id):
+@requires_auth("patch:categories")
+def category_patch(payload, category_id):
 
     category = Category.query.get_or_404(category_id)
     try:
@@ -107,7 +110,8 @@ def category_patch(category_id):
 
 
 @app.route("/api/categories/<int:category_id>", methods=['DELETE'])
-def category_delete(category_id):
+@requires_auth("delete:categories")
+def category_delete(payload, category_id):
 
     category = Category.query.get_or_404(category_id)
     try:
@@ -128,7 +132,8 @@ def category_delete(category_id):
 
 
 @app.route("/api/characters", methods=['GET'])
-def characters():
+@requires_auth("get:characters")
+def characters(payload):
     characters = Character.query.order_by(Character.id).all()
     return jsonify({
         'success': True,
@@ -138,8 +143,21 @@ def characters():
     })
 
 
+@app.route("/api/characters-full", methods=['GET'])
+@requires_auth("get:characters")
+def characters_full(payload):
+    characters = Character.query.order_by(Character.id).all()
+    return jsonify({
+        'success': True,
+        'status_code': 200,
+        'characters': [character.formatFull() for character in characters]
+
+    })
+
+
 @app.route("/api/characters/<int:character_id>", methods=['GET'])
-def character_get(character_id):
+@requires_auth("get:character-info")
+def character_get(payload, character_id):
 
     try:
         character_data = Character.query.get_or_404(character_id)
@@ -156,7 +174,8 @@ def character_get(character_id):
 
 
 @app.route("/api/characters", methods=['POST'])
-def characters_post():
+@requires_auth("post:character")
+def characters_post(payload):
 
     try:
         request_data = request.get_json()
@@ -190,7 +209,8 @@ def characters_post():
 
 
 @app.route("/api/characters/<int:character_id>", methods=['PATCH'])
-def character_patch(character_id):
+@requires_auth("patch:character")
+def character_patch(payload, character_id):
     character_data = Character.query.get_or_404(character_id)
 
     try:
@@ -233,7 +253,8 @@ def character_patch(character_id):
 
 
 @app.route("/api/characters/<int:character_id>", methods=['DELETE'])
-def character_delete(character_id):
+@requires_auth("delete:character")
+def character_delete(payload, character_id):
     character_data = Character.query.get_or_404(character_id)
 
     try:
@@ -255,17 +276,19 @@ def character_delete(character_id):
 
 '''
 @app.route("/api/shows", methods=['GET'])
-def shows():
+@requires_auth("get:shows")
+def shows(payload):
     shows = Show.query.all()
     return jsonify({
         'success': True,
         'status_code': 200,
-        'shows': [show.format() for show in shows]
+        'shows': [show.formatFull() for show in shows]
     })
 
 
 @app.route("/api/shows/<int:show_id>", methods=['GET'])
-def show_get(show_id):
+@requires_auth("get:show-info")
+def show_get(payload, show_id):
     show = Show.query.get_or_404(show_id)
     try:
         return jsonify({
@@ -278,7 +301,8 @@ def show_get(show_id):
 
 
 @app.route("/api/shows", methods=['POST'])
-def shows_post():
+@requires_auth("post:show")
+def shows_post(payload):
     request_data = request.get_json()
     try:
 
@@ -310,7 +334,8 @@ def shows_post():
 
 
 @app.route("/api/shows/<int:show_id>", methods=['PATCH'])
-def shows_patch(show_id):
+@requires_auth("patch:show")
+def shows_patch(payload, show_id):
     show_data = Show.query.get_or_404(show_id)
     try:
         request_data = request.get_json()
@@ -343,7 +368,8 @@ def shows_patch(show_id):
 
 
 @app.route("/api/shows/<int:show_id>", methods=['DELETE'])
-def shows_delete(show_id):
+@requires_auth("delete:show")
+def shows_delete(payload, show_id):
     show_data = Show.query.get_or_404(show_id)
     try:
         show_data.delete()
@@ -401,12 +427,21 @@ def not_found(error):
     }), 404
 
 
+@app.errorhandler(405)
+def method_not_allowed(error):
+    return jsonify({
+        'success': False,
+        'error': 405,
+        'message': 'Method not allowed.'
+    }), 405
+
+
 @app.errorhandler(422)
 def unprocessable(error):
     return jsonify({
         'success': False,
         'status_code': 422,
-        'message': 'unprocessable'
+        'message': 'Unprocessable'
     }), 422
 
 

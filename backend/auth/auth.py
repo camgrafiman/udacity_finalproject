@@ -3,13 +3,14 @@ from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+import urllib3
 
 '''
 AUTH0 Config data:
 '''
-AUTH0_DOMAIN = ''
+AUTH0_DOMAIN = 'dev-x-camgrafiman.eu.auth0.com'
 ALGORITHMS = ['RS256']
-API_AUDIENCE = ''
+API_AUDIENCE = 'finalprojectapi'
 
 
 # AuthError Exception
@@ -119,6 +120,9 @@ def verify_decode_jwt(token):
     # Get the public key from Auth0:
     jsonurl = urlopen(f'https://{AUTH0_DOMAIN}/.well-known/jwks.json')
     jwks = json.loads(jsonurl.read())
+    # url_string = "https://{}/.well-known/jwks.json".format(AUTH0_DOMAIN)
+    # json_url = urlopen(url_string)
+    # jwks = json.loads(json_url.read())
 
     # GET THE DATA IN THE HEADER:
     unverified_header = jwt.get_unverified_header(token)

@@ -7,11 +7,9 @@ import datetime
 # environment variables using python-decouple (.env) file :
 from decouple import config
 
-# DATABASE_NAME = config('DATABASE_NAME')
-# DATABASE_USER = config('DATABASE_USER')
-
-DATABASE_URI = config('DATABASE_URI_LOCAL')
-print(DATABASE_URI)
+DATABASE_URI = config('DATABASE_URI')
+# DATABASE_URI = config('DATABASE_URI_LOCAL')
+# print(DATABASE_URI)
 
 db = SQLAlchemy()
 
