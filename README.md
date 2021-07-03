@@ -1,5 +1,13 @@
 ## Udacity Final Project README:
 
+## Introduction - Motivation for this project
+
+The motivation for doing this project was primarily a big interest in undertaking a challenging project in an area I love (Movie, Series). The opportunity to learn more about backend technologies and increase my coding level.
+
+This application deals with series, movies and characters that appears on them, I have worked on this since it is something that I am passionate about and I wanted it to be my personal challenge. I've learned a lot searching, reading and following extra tutorials/ documentation to build the app. It's intended to be a usable app for anyone who likes TV and Movies to save his own personal TV Series/Movies collection.
+
+Hope you enjoy this app, feel free to test it!
+
 ## Capstone Project for Udacity's Full Stack Developer Nanodegree
 
 Heroku Link: https://udacity-camgrafiman2.herokuapp.com/
@@ -626,7 +634,7 @@ APP_ENTRYPOINT=app.py
 ```
 
 
-
+* Uncomment line 23 in app.py 'db_create_all' function to insert some dummy data in the tables
 
 open the 'testdb.sql' change the admin user for your default one (postgres) for example
 run the following commands (in the exact order):

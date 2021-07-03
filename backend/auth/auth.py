@@ -1,3 +1,4 @@
+import os
 import json
 from flask import request, _request_ctx_stack, abort
 from functools import wraps
@@ -8,11 +9,15 @@ from urllib.request import urlopen
 '''
 AUTH0 Config data:
 '''
+# AUTH0_DOMAIN = os.environ.get('REACT_APP_AUTH0_DOMAIN')
+# ALGORITHMS = os.environ.get('ALGORITHMS')
+# API_AUDIENCE = os.environ.get('REACT_APP_AUTH0_AUDIENCE')
 AUTH0_DOMAIN = 'dev-x-camgrafiman.eu.auth0.com'
 ALGORITHMS = ['RS256']
 API_AUDIENCE = 'finalprojectapi'
 
-
+print(AUTH0_DOMAIN)
+print(ALGORITHMS)
 # AuthError Exception
 '''
 AuthError Exception
@@ -186,8 +191,8 @@ implemented @requires_auth(permission) decorator method
         permission: string permission (i.e. 'post:drink')
 
     - it should use the get_token_auth_header method to get the token.
-    - it should use the verify_decode_jwt method to decode the jwt 
-    - it should use the check_permissions method validate claims and check the requested permission 
+    - it should use the verify_decode_jwt method to decode the jwt
+    - it should use the check_permissions method validate claims and check the requested permission
     - return the decorator which passes the decoded payload to the decorated method
 '''
 

@@ -8,8 +8,8 @@ import datetime
 from decouple import config
 
 DATABASE_URI = config('DATABASE_URI')
+# Switch if you want to test with local database path.
 # DATABASE_URI = config('DATABASE_URI_LOCAL')
-# print(DATABASE_URI)
 
 db = SQLAlchemy()
 
@@ -57,8 +57,18 @@ class User(db.Model):
 
 
 # Association table Many-to-Many between Character and Show Classes/tables.
-casts = db.Table('casts', db.Column('character_id', db.Integer, db.ForeignKey(
-    'characters.id'), primary_key=True), db.Column('show_id', db.Integer, db.ForeignKey('shows.id'), primary_key=True))
+casts = db.Table(
+    'casts',
+    db.Column(
+        'character_id',
+        db.Integer,
+        db.ForeignKey('characters.id'),
+        primary_key=True),
+    db.Column(
+        'show_id',
+        db.Integer,
+        db.ForeignKey('shows.id'),
+        primary_key=True))
 
 
 class Character(db.Model):
@@ -69,7 +79,8 @@ class Character(db.Model):
     age = Column(Integer, default=0)
     gender = Column(String(length=50))
     image = Column(
-        String, default="https://www.labicok.com/wp-content/uploads/2020/09/default-user-image.png")
+        String,
+        default="https://www.labicok.com/wp-content/uploads/2020/09/default-user-image.png")
     showcasts = db.relationship(
         'Show', secondary=casts, backref=db.backref('cast', lazy=True))
 
@@ -135,7 +146,13 @@ class Show(db.Model):
 
     # Show.cast  (self.cast) is available.
 
-    def __init__(self, title, show_type, show_description, release_date, rating):
+    def __init__(
+            self,
+            title,
+            show_type,
+            show_description,
+            release_date,
+            rating):
         self.title = title
         self.show_type = show_type
         self.show_description = show_description
@@ -224,6 +241,24 @@ def db_drop_and_create_all():
     )
 
     user.insert()
+
+    character = Character(
+        name='testCharacter 1',
+        character_name='Test char name',
+        age=38,
+        gender='female',
+        image='https://elfinalde.s3-accelerate.amazonaws.com/2016/03/qDJ3TIIHnaE9x6GUt9QlDXi3KRZ.jpg'
+    )
+    character.insert()
+
+    defaultShow = Show(
+        title="Fire and blood",
+        show_type="Series",
+        show_description="Got precquel",
+        release_date=2021,
+        rating=4.5
+    )
+    defaultShow.insert()
 
     # Add default categories and default No-Show:
     noShow = Show(title='No show', show_type='No type',
